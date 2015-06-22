@@ -1,0 +1,292 @@
+{
+	"name": "<?=$config->name?>",
+	"label": "<?=$config->label?>",
+	"description": "<?=$config->label?>의 정보를 제공 하는 컨트럴러와 모델 패키지",
+	"packages": {
+		"controllers": {
+			"type": "controllers",
+			"name": "com.a2m.module.<?=$project?>.ctr.mng.conts.<?=$project?><?=$config->name?>",
+			"classes": {
+				"listController": {
+					"type": "controller",
+					"typeId": "listController",
+					"name": "Mng<?=$config->name?>Controller",
+					"description": "<?=$config->label?>의 목록, 검색을 담당하는 컨트롤러",
+					"extends": "SimpleController",
+					"implements": [],
+					"methods": {
+						"doInit": {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "최초 페이지 요청 메소드"
+						},
+						"doRequest" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "상세 페이지 요청 메소드"
+						},
+						"doSubmit" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"mode": "String"
+							},
+							"type": "ModelAndView",
+							"description": "데이터 조작 요청 메소드"
+						},
+						"doReference": {
+							"parameters": {
+								"access": "public",
+								"request": "HttpServletRequest"
+							},
+							"type": "Map",
+							"description": "뷰에 필요한 데이터 전송 메소드"
+						}
+					},
+					"attributes": {
+						"<?=$config->name->lcFirst()?>": {
+							"access": "private",
+							"type": "<?=$config->name?>",
+							"description": "서비스 클래스"
+						}
+					}
+				},
+				"viewController": {
+					"type": "controller",
+					"typeId": "viewController",
+					"description": "<?=$config->label?>의 보기를 담당하는 컨트롤러",
+					"name": "Mng<?=$config->name?>Controller",
+					"extends": "SimpleController",
+					"implements": [],
+					"methods": {
+						"doInit": {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "최초 페이지 요청 메소드"
+						},
+						"doRequest" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "상세 페이지 요청 메소드"
+						},
+						"doSubmit" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"mode": "String"
+							},
+							"type": "ModelAndView",
+							"description": "데이터 조작 요청 메소드"
+						},
+						"doReference": {
+							"parameters": {
+								"access": "public",
+								"request": "HttpServletRequest"
+							},
+							"type": "Map",
+							"description": "뷰에 필요한 데이터 전송 메소드"
+						}
+					},
+					"attributes": {
+						"<?=$config->name->lcFirst()?>": {
+							"access": "private",
+							"type": "<?=$config->name?>",
+							"description": "서비스 클래스"
+						}
+					}
+				},
+				"iudController": {
+					"type": "controller",
+					"typeId": "iudController",
+					"description": "<?=$config->label?>의 저장, 변경, 삭제를 담당하는 컨트롤러",
+					"name": "Mng<?=$config->name?>Controller",
+					"extends": "SimpleController",
+					"implements": [],
+					"methods": {
+						"doInit": {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "최초 페이지 요청 메소드"
+						},
+						"doRequest" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"Reperence": "Map"
+							},
+							"type": "ModelAndView",
+							"description": "상세 페이지 요청 메소드"
+						},
+						"doSubmit" : {
+							"access": "public",
+							"parameters": {
+								"request": "HttpServletRequest",
+								"response": "HttpServletResponse",
+								"mode": "String"
+							},
+							"type": "ModelAndView",
+							"description": "데이터 조작 요청 메소드"
+						},
+						"doReference": {
+							"parameters": {
+								"access": "public",
+								"request": "HttpServletRequest"
+							},
+							"type": "Map",
+							"description": "뷰에 필요한 데이터 전송 메소드"
+						}
+					},
+					"attributes": {
+						"<?=$config->name->lcFirst()?>": {
+							"access": "private",
+							"type": "<?=$config->name?>",
+							"description": "서비스 클래스"
+						}
+					}
+				}
+			}
+		},
+		"models": {
+			"name": "com.a2m.module.<?=$project?>.dao",
+			"type": "models",
+			"classes": {
+				"interface": {
+					"type": "interface",
+					"typeId": "interface",
+					"description": "<?=$config->label?>의 인터페이스",
+					"name": "<?=$config->name?>",
+					"extends": "",
+					"implements": [],
+					"methods": {
+						"getList": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "List",
+							"description": "데이터 리스트 트랜잭션 처리 선언"
+						},
+						"getMap": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "Map",
+							"description": "데이터 상세화면 트래잭션 처리 선언"
+						},
+						"insert": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 등록 트래잭션 처리 선언"
+						},
+						"update": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 변경 트래잭션 처리 선언"
+						},
+						"delete": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 삭제 트래잭션 처리 선언"
+						}
+					},
+					"attributes": {}
+				},
+				"model": {
+					"type": "model",
+					"typeId": "model",
+					"description": "<?=$config->name?>을 구현한 DAO",
+					"name": "<?=$config->name?>Service",
+					"extends": "",
+					"implements": ["<?=$config->name?>"],
+					"methods": {
+						"getList": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "List",
+							"description": "<?=$config->label?>의 데이터 트랜잭션 처리"
+						},
+						"getMap": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "Map",
+							"description": "데이터 상세화면 트래잭션 처리"
+						},
+						"insert": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 등록 트래잭션 처리"
+						},
+						"update": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 변경 트래잭션 처리"
+						},
+						"delete": {
+							"access": "public",
+							"parameters": {
+								"args": "Map"
+							},
+							"type": "void",
+							"description": "데이터 삭제 트래잭션 처리"
+						}
+					},
+					"attributes": {
+						"sqlMap": {
+							"access": "public",
+							"type": "SqlMapClient",
+							"description": "데이터베이스 자료 매핑 클라이언트"
+						}
+					}
+				}
+			}
+		}
+	}
+}

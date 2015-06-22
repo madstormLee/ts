@@ -1,0 +1,36 @@
+<h1>Database List</h1>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>DB명</th>
+		<th>이름</th>
+		<th>형식</th>
+		<th>설명</th>
+		<th>보기</th>
+		<th>편집</th>
+	</tr>
+</thead>
+<tbody>
+	<? foreach ( $list as $row ): ?>
+	<tr>
+		<td><a href='~/tableDiagram/list?database=<?=$row->name?>'><?=$row->name?></a></td>
+		<td><a href='~/tableDiagram/list?database=<?=$row->name?>'><?=$row->label?></a></td>
+		<td><?=$row->server?></td>
+		<td><?=$row->comment?></td>
+		<td> <a href='~/json/view?file=<?=$row->getFile()?>'>json</a> </td>
+		<td> <a href='~/json/write?file=<?=$row->getFile()?>'>json</a> </td>
+	</tr>
+	<? endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>
+
+<ul class='naviButtons'>
+	<li><a href='write'>만들기</a></li>
+	<li><a href='viewAll'>출력용 전체보기</a></li>
+	<li><a href='downloadPdf'>pdf 다운로드</a></li>
+</ul>

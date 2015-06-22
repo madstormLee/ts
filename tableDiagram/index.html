@@ -1,0 +1,27 @@
+<h1>Table List</h1>
+
+<ul class='naviButtons'>
+	<li><a href='viewAll?database=<?=$g->get->database?>'>출력용 전체보기</a></li>
+	<li><a href='~/Web2Pdf/download?name=table'>pdf 다운로드</a></li>
+</ul>
+
+<table class='adminTable'>
+	<thead>
+		<tr>
+			<th>테이블 명</th>
+			<th>이름</th>
+		</tr>
+	</thead>
+	<tbody>
+		<? foreach ( $list as $row ): $row->interpret('oracle')?>
+		<tr>
+			<td><a href='view?file=<?=$row->getFile()?>'><?=$row->name?></a></td>
+			<td><a href='view?file=<?=$row->getFile()?>'><?=$row->label?></a></td>
+		</tr>
+		<? endforeach; ?>
+	</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

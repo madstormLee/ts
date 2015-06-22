@@ -1,0 +1,25 @@
+<h1>테이블 목록</h1>
+<h2><?=$g->get->database?></h2>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>NO</th>
+		<th>테이블명</th>
+		<th>설 명</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $list as $row ): ?>
+	<tr>
+		<td><?=$i?></td>
+		<td><?=$row->TABLE_NAME?></td>
+		<td><?=$row->TABLE_COMMENT?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

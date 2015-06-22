@@ -1,0 +1,151 @@
+<h1><?=$model->label?> 패키지 클래스 보기</h1>
+
+<!-- classDiagram -->
+<section class='classDiagram'>
+	<? foreach( $model->packages as $packageName => $package ) : ?>
+	<fieldset>
+		<legend><?=$package->type?></legend>
+		<? foreach( $package->classes as $class ): ?>
+		<dl class='<?=$package->type?>'>
+			<dt>
+				<? if ( $class->extends ): ?>
+				<span><?=$class->extends?></span>
+				<? endif ?>
+				<? if ( $class->type == 'interface' ): ?>
+				<span>interface</span>
+				<? endif ?>
+				<? if ( ! $class->implements->isEmpty() ): ?>
+				<span><?=implode( ',', $class->implements->get() )?></span>
+				<? endif; ?>
+				<b><?=$class->name?></b>
+			</dt>
+			<dd class='member'>
+				<ul>
+				<? foreach( $class->attributes as $name => $attribute ): ?>
+					<li class='<?=$attribute->access?>'><?=$name?>:<?=$attribute->type?></li>
+				<? endforeach; ?>
+				</ul>
+			</dd>
+			<dd class='method <?=$method->access?>'>
+				<ul>
+				<? foreach( $class->methods as $methodName => $method ): ?>
+					<li><?=$methodName?>(
+					<?
+					$parameters = array();
+					foreach( $method->parameters as $name => $type ){
+						$parameters[] = "$name:$type";
+					}
+					print implode(',', $parameters);
+					?>
+					):<?=$method->type?>
+					</li>
+				<? endforeach; ?>
+				</ul>
+			</dd>
+		</dl>
+		<? if ( $class->type == 'interface' ): ?>
+		<img id='implementArrow' src='~/images/implementArrow.gif' />
+		<? endif; ?>
+		<? endforeach; ?>
+	</fieldset>
+	<? endforeach; ?>
+</section>
+
+<!-- package view -->
+<section class='packageList'>
+<table class='tableSummary componentViewTable'>
+	<thead>
+		<th>패키지</th>
+		<th>클래스</th>
+		<th>설명</th>
+	</thead>
+	<tbody>
+		<? foreach( $model->packages as $packageName => $package ): ?>
+		<? foreach( $package->classes as $className => $class ): ?>
+		<tr>
+			<td><?=$package->name?></td>
+			<td><?=$class->name?></td>
+			<td><?=$class->description?></td>
+		<tr>
+		<? endforeach; ?>
+		<? endforeach; ?>
+</table>
+</section>
+
+<hr />
+
+<!--madTemp this is mock table explanation -->
+<? foreach( $model->packages as $packageName => $package ): ?>
+<section class='classView'>
+<? foreach( $package->classes as $className => $class ): ?>
+
+<h2><?=$class->name?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>패키지</td>
+			<td><?=$package->name?></td>
+			<td class='title'>클래스명</td>
+			<td><?=$class->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$class->description?></td>
+		</tr>
+		<tr>
+			<td class='title'>종류</td>
+			<td colspan='3'><?=$class->type?></td>
+		</tr>
+		<tr>
+			<td class='title'>상속</td>
+			<td colspan='3'><?=$class->extends?></td>
+		</tr>
+		<tr>
+			<td class='title'>구현</td>
+			<td colspan='3'>
+				<?=( $class->implements->isEmpty() )? '': implode( ',', $class->implements->get() );?>
+			</td>
+		</tr>
+		<tr>
+			<td class='title'>관련 테이블</td>
+			<td colspan='3'><?=strToUpper($model->name)?></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>Member</th>
+		<th>한정</th>
+		<th>이름</th>
+		<th>Return/Type</th>
+		<th>설명</th>
+	</tr>
+</thead>
+<tbody>
+	<? foreach ( $class->attributes as $name => $row ): ?>
+	<tr>
+		<td>Attribute</td>
+		<td><?=$row->access?></td>
+		<td><?=$name?></td>
+		<td><?=$row->type?></td>
+		<td><?=$row->description?></td>
+	</tr>
+	<? endforeach; ?>
+	<? foreach ( $class->methods as $name => $row ): ?>
+	<tr>
+		<td>Method</td>
+		<td><?=$row->access?></td>
+		<td><?=$name?></td>
+		<td><?=$row->type?>()</td>
+		<td><?=$row->description?></td>
+	</tr>
+	<? endforeach; ?>
+</tbody>
+</table>
+<? endforeach; ?>
+</section>
+<hr />
+<? endforeach; ?>

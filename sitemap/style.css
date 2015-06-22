@@ -1,0 +1,133 @@
+#sitemap {
+}
+#sitemap dl {
+	display: block;
+	border: 1px solid #000;
+	margin: 2px;
+}
+#sitemap dt {
+margin-left: 20px;
+}
+#sitemap dt .buttons {
+	display: inline-block;
+}
+#sitemap dt .buttons a {
+	display: inline-block;
+	font-size: 70%;
+	font-weight: 500;
+}
+#sitemap dd {
+display: none;
+margin-left: 20px;
+}
+#sitemapTree {
+font-size: 12px;
+}
+#sitemapTree dl {
+margin-left: 15px;
+}
+#sitemapTree dl dt {
+margin-top: 2px;
+padding: 2px 7px;
+border: 1px solid #ccc;
+clear: left;
+}
+#sitemapTree dl dt .label {
+display: inline-block;
+padding: 2px;
+background: #eea;
+}
+#sitemapTree dl dt .buttons {
+display: inline;
+}
+#sitemapTree dl dt .buttons li {
+display: inline;
+}
+#sitemapTree dl dt .buttons li a {
+display: inline-block;
+border: 1px solid #ccc;
+padding: 1px;
+background: #eee;
+}
+/********************* writeSub *****************/
+#write {
+position: absolute;
+top: 30px;
+right: 0px;
+width: 500px;
+border: 5px solid #000;
+background: #fff;
+z-index: 30;
+}
+#MVCManager {
+position: absolute;
+right: 10px;
+top: 10px;
+border: 2px solid #000;
+background: #fff;
+z-index: 50;
+}
+#MVCManager li a {
+display: block;
+padding: 3px 20px;
+background: #eee;
+}
+#MVCManager li a.current {
+background: #fcc;
+}
+#MVCManager li a:hover {
+background: #ccf;
+}
+/********************* view *********************/
+#view {
+position: absolute;
+top: 30px;
+right: 0px;
+width: 500px;
+border: 3px solid #000;
+background: #fff;
+overflow: auto;
+z-index: 100;
+}
+#content {
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
+#content td {
+	border: 1px solid #000;
+}
+#content td.header {
+background: #ccc;
+}
+
+/* view.css */
+#content {
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
+#content td {
+	border: 1px solid #000;
+}
+#content td.header {
+background: #ccc;
+}
+
+/* writeSub.css */
+#MVCManager {
+position: absolute;
+left: 800px;
+top: 100px;
+border: 2px solid #000;
+background: #fff;
+}
+#MVCManager li a {
+display: block;
+padding: 3px 20px;
+background: #eee;
+}
+#MVCManager li a.current {
+background: #fcc;
+}
+#MVCManager li a:hover {
+background: #ccf;
+}

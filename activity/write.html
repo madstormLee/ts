@@ -1,0 +1,148 @@
+<style>
+.activityList {
+	border-collapse: collapse;
+}
+.activityList th,
+.activityList td {
+	border: 1px solid #000;
+}
+.activityList th {
+	width: 50%;
+	background: #ccc;
+}
+#UsecaseNActivity {
+display: block;
+min-height: 500px;
+padding: 20px;
+margin-right: 210px;
+margin-left: 200px;
+}
+h1 {
+	display: none;
+}
+#left {
+}
+.addActivity {
+	width: 98%;
+}
+</style>
+
+<section id='left'>
+	sitemaptree
+</section>
+
+
+
+
+<h1>Usecase 설명</h1>
+
+<form id='UsecaseNActivity' method='post' action='insert'>
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>유스케이스 ID</td>
+			<td><?=$table->database?></td>
+			<td class='title'>유스케이스 명</td>
+			<td><?=$table->userId?></td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$table?></td>
+		</tr>
+		<tr>
+			<td class='title'>액터</td>
+			<td colspan='3'><?=$table->TABLE_TYPE?></td>
+		</tr>
+		<tr>
+			<td class='title'>사전 조건</td>
+			<td colspan='3'><?=$table->TABLE_COMMENT?></td>
+		</tr>
+		<tr>
+			<td class='title'>사후 조건</td>
+			<td colspan='3'><?=$table->TABLE_COMMENT?></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class='activityList'>
+<thead>
+	<tr>
+		<th>액터 행위</th>
+		<th>시스템 행위</th>
+	</tr>
+</thead>
+<tbody>
+	<? foreach ( $activityList as $row ): ?>
+	<tr>
+		<td></td>
+		<td><?=$row->Field?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+	<tr>
+		<td><input class='addActivity' id='addActorActivity' name='addActorActivity' type='text' /></td>
+		<td><input class='addActivity' id='addSystemActivity' name='addSystemActivity' type='text' /></td>
+	</tr>
+</tbody>
+</table>
+
+</form>
+
+<style>
+#right {
+position: absolute;
+top: 20px;
+right: 0;
+width: 200px;
+}
+#right dl {
+border: 1px solid #000;
+margin-bottom: 10px;
+}
+#right dt {
+padding: 5px;
+background: #eee;
+border-bottom: 3px double #000;
+}
+#right ul {
+list-style: none;
+}
+#right ul li {
+padding: 3px;
+}
+#ConditionList {
+min-height: 150px;
+}
+#ActorList {
+min-height: 150px;
+}
+#UsecaseList {
+min-height: 150px;
+}
+</style>
+
+<section id='right'>
+	<dl id='ConditionList'>
+		<dt>ConditionList</dt>
+		<dd>
+			<ul>
+				<li><a href='~/condition/view?no=1'>condition</a></li>
+			</ul>
+		</dd>
+	</dl>
+	<dl id='ActorList'>
+		<dt>ActorList</dt>
+		<dd>
+			<ul>
+				<li><a href='~/condition/view?no=1'>actor</a></li>
+			</ul>
+		</dd>
+	</dl>
+	<dl id='UsecaseList'>
+		<dt>UsecaseList</dt>
+		<dd>
+			<ul>
+				<li><a href='~/condition/view?no=1'>usecase</a></li>
+			</ul>
+		</dd>
+	</dl>
+</section>

@@ -1,0 +1,15 @@
+<h1>Test Index</h1>
+
+<nav class='list' id='TestIndex'>
+	<? foreach( $list as $row ) : ?>
+	<a href='./view?file=<?=$row->getFile()?>'><?=$row->getInfo()->getBasename( '.php' )?></a>
+	<? endforeach; ?>
+</nav>
+
+<h1>Test Actions</h1>
+
+<ul>
+	<? foreach( $actions as $action ) : ?>
+	<li><a href='./<?=$action?>'><?=$action?></a></li>
+	<? endforeach; ?>
+</ul>

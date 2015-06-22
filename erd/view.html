@@ -1,0 +1,17 @@
+<h1>Erd View</h1>
+
+<nav class='component'>
+	<a href='./index'>index</a>
+	<a href='./write?file=<?=$model->getFile()?>'>write</a>
+</nav>
+
+<p class='notice'>
+	<b>TITLE :</b>
+	<span><?=$model->title ?></span>
+</p>
+
+
+<section id='ErdView'>
+	<section id='entities'><?=$model->entities?></section>
+	<canvas id='relations' width='1000' height='700'><?=$model->relations?></canvas>
+</section>

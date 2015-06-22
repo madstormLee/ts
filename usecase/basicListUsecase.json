@@ -1,0 +1,60 @@
+{
+	"id" : "<?=$config->name?>00L",
+	"name" : "<?=$config->label?> 목록검색 / 보기",
+	"description" : "<?=$config->label?> 정보 목록을 검색하고, 보여줍니다.",
+	"actors" : [
+		"어드민"
+	],
+	"preConditions" : [
+		"admin으로 로그인 후 사용 가능",
+		"<?=$config->label?> 내용을 입력한 후 확인 가능"
+	],
+	"postConditions" : [],
+	"activities" : [
+		{
+			"name" : "<?=$config->label?> 정보 목록 검색",
+			"acts" : [
+				{
+					"side" : "system",
+					"brief" : "<?=$config->label?> 기본목록을 출력한다."
+				},
+				{
+					"side" : "actor",
+					"brief" : "검색에 원하는 정보를 입력하고 요청한다."
+				},
+				{
+					"side" : "system",
+					"brief" : "검색조건에 해당하는 내용을 찾는다."
+				},
+				{
+					"condition" : "검색 내용이 있는 경우",
+					"side" : "system",
+					"brief" : "해당 결과를 목록으로 출력한다."
+				},
+				{
+					"condition" : "검색 내용이 없는 경우",
+					"side" : "system",
+					"brief" : "목록이 없다는 메시지를 출력한다."
+				}
+			]
+		},
+		{
+			"name" : "정보 보기",
+			"acts" : [
+				{
+					"side" : "actor",
+					"brief" : "목록에서 타이틀을 선택한다."
+				},
+				{
+					"side" : "system",
+					"brief" : "선택된 데이터의 정보를 출력한다."
+				},
+				{
+					"side" : "actor",
+					"brief" : "<?=$config->label?> 정보를 확인한다."
+				}
+			]
+		}
+	],
+	"comment" : ""
+}

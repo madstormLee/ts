@@ -1,0 +1,117 @@
+<script src='./write.js'></script>
+
+<nav class='mainMenu'>
+	<a id='saveFile' href='./save'>저장</a>
+	<a id='reopen' href='?'>다시 열기</a>
+	<a class='btnClose' href='list'>X</a>
+</nav>
+
+<form id='InterfaceWrite' method='post' action='./save'>
+	<input type='hidden' name='file' value='<?=$get->file?>' />
+	<input type='hidden' name='action' value='<?=$get->action?>' />
+
+	<div id='info'>
+	<ul class='basicInfo'>
+		<li class='title'>CRM</li>
+		<li>
+			<label for='writer'>작성자</label>
+			<input type='text' id='writer' name='writer' value='<?=$data->writer?>'/>
+		</li>
+		<li>
+			<label for='version'>버전</label>
+			<input type='text' id='version' name='version' value='<?=$data->version?>' />
+		</li>
+		<li>
+			<label for='wDate'>작성일</label>
+			<input type='text' id='wDate' name='wDate' value='<?=$data->wDate?>' />
+		</li>
+	</ul>
+	<ul class='screenInfo'>
+		<li>
+			<label for='screenId'>화면ID</label>
+			<input type='text' id='screenId' name='screenId' value='<?=$data->id?>' />
+		</li>
+		<li>
+			<label for='screenName'>화면명</label>
+			<input type='text' id='screenName' name='screenName' value='<?=$data->location?>' />
+		</li>
+	</ul>
+	</div>
+
+	<div id='right'>
+		<dl>
+			<dt>
+				내용
+				<a id='addPosition' href='#addPosition'>*</a>
+				<a id='addContents' href='#addContents'>+</a>
+			</dt>
+			<dd>
+				<ol>
+					<? foreach( $data->contents as $value ) : ?>
+					<li><input type='text' class='contents' name='contents[]' value='<?=$value ?>' /></li>
+					<? endforeach; ?>
+				</ol>
+			</dd>
+		</dl>
+		<dl>
+			<dt>비고</dt>
+			<dd><textarea type='text' id='comment' name='comment'><?=$data->comment ?></textarea></dd>
+		</dl>
+	</div>
+</form>
+
+
+<!-- ********************** previewTools *********************** -->
+<section id='previewTools'>
+<form id='getPreview' method='post' action='~/preview/getUrl?file=<?=$preview->getFile()?>'>
+	<fieldset>
+	<legend>가져오기</legend>
+	<ul>
+		<li>
+			<label for='externalSite'>사이트 URL : </label>
+			<input type='text' id='siteUrl' name='siteUrl' placeholder='http://' />
+			<button class='btnSubmit' type='submit'>확인</button>
+			<a id='getDefaultPreview' href='~/preview/getDefault?file=<?=$preview->getFile()?>'>Get Default Preview</a>
+		</li>
+	</ul>
+	</fieldset>
+</form>
+
+<dl id='tool' class='tools'>
+	<dt>툴</dt>
+	<dd>
+	<ul>
+		<li><a id='select' class='on' href='#select'>선택</a></li>
+		<li><a id='marker' href='#marker'>마커</a></li>
+		<li><a id='removeUnit' href='#remove'>삭제</a></li>
+		<li><a id='editHtml' href='#editHtml'>편집</a></li>
+	</ul>
+	</dd>
+</dl>
+<dl id='state' class='tools'>
+	<dt>상태</dt>
+	<dd>
+	<ul>
+		<li><a id='markerVisible' class='on' href='#markerVisible'>마커 켜짐</a></li>
+		<li><a id='savePreview' href='~/preview/save?file=<?=$preview->getFile()?>'>변경 저장</a></li>
+	</ul>
+	</dd>
+</dl>
+<dl id='action' class='tools'>
+	<dt>적용</dt>
+	<dd>
+	<ul>
+		<li><a id='cancelSelect' href='#cancelSelect'>선택 취소</a></li>
+		<li><a id='removeSelected' href='#removeSelected'>선택 삭제</a></li>
+	</ul>
+	</dd>
+</dl>
+</section>
+
+<section id='mainContents'>
+	<section id='previewContainer' class='wireframe'>
+	<? if ( $g->get->preview ): ?>
+	<?=$preview?>
+	<? endif; ?>
+	</section>
+</section>

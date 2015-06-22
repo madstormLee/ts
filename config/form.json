@@ -1,0 +1,104 @@
+{
+	"name": {
+		"label": "프로그램명",
+		"placeholder": "model 이름",
+		"type": "text"
+	},
+	"label": {
+		"label": "표시명",
+		"placeholder": "한글 명",
+		"type": "text"
+	},
+	"description": {
+		"label": "설명",
+		"placeholder": "설명을 간단하게 써 주세요.",
+		"type": "text"
+	},
+	"columns": {
+		"label": "멤버",
+		"type": "list",
+		"units": {
+			"name": {
+				"label": "컬럼명",
+				"placeholder": "myProject",
+				"type": "text"
+			},
+			"label": {
+				"label": "순번",
+				"placeholder": "순번",
+				"type": "text"
+			},
+			"type": {
+				"label": "integer unsigned",
+				"placeholder": "integer unsigned",
+				"type": "text"
+			},
+			"min": {
+				"label": 0,
+				"placeholder": 0,
+				"type": "text"
+			},
+			"max": {
+				"label": 0,
+				"placeholder": 0,
+				"type": "text"
+			},
+			"description": {
+				"label": "",
+				"placeholder": "",
+				"type": "text"
+			},
+			"autoIncrement": {
+				"label": "true",
+				"placeholder": "true",
+				"type": "text"
+			},
+			"primaryKey": {
+				"label": "true",
+				"placeholder": "true",
+				"type": "text"
+			},
+			"unique": {
+				"label": "false",
+				"placeholder": "false",
+				"type": "text"
+			},
+			"notNull": {
+				"label": "true",
+				"placeholder": "true",
+				"type": "text"
+			},
+			"default": {
+				"label": "",
+				"placeholder": "",
+				"type": "text"
+			},
+			"list": {
+				"label": "",
+				"subs": {
+					"show": {
+					"label": "true",
+					"placeholder": "true",
+					"type": "text"
+				}
+			},
+			"view": {
+				"show" : {
+					"label":  "true",
+					"placeholder":  "true",
+					"type": "text"
+				}
+			}
+		}
+	},
+	"uDate": {
+		"label": "2011-10-20",
+		"placeholder": "2011-10-20",
+		"type": "datetime"
+	},
+	"wDate": {
+		"label": "2011-10-20",
+		"placeholder": "2011-10-20",
+		"type": "datetime"
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"no": {
+		"type": "int unsigned",
+		"extra": "auto_increment",
+		"method": "getNull"
+	},
+	"name": {
+		"method": "getName"
+	},
+	"email": {
+		"method": "getEmail"
+	},
+	"address": {
+		"method": "getAddress"
+	},
+	"content": {
+		"method": "getContent"
+	},
+	"tel": {
+		"method": "getTel"
+	},
+	"cell": {
+		"method": "getCell"
+	}
+}

@@ -1,0 +1,69 @@
+<h1>Export Java Spring</h1>
+
+<ul class='naviButtons'>
+	<li><a href='presetList'>presetList</a></li>
+</ul>
+
+<?//=$directorySelect?>
+
+<h2>정보 입력</h2>
+
+<p class='caution'>
+일단, diagram 정보를 사용하므로, 아래 path는 사용하지 않는 것으로 한다.<br />
+package 정보(class diagram의)를 이용하자.<br />
+정보가 없는 sql과 src는 사용하되 conventional하게만 test.
+</p>
+
+<form id='exportJavaSpringForm' class='adminForm' method='post' action='exportingJavaSpring'>
+	<ul>
+		<li>
+			<label>프로젝트 명</label>
+			<input type='text' name='projectName' value='<?=$model->info->name?>' />
+		<li>
+		<li>
+			<label>데이타베이스</label>
+			<select name='database'>
+				<option value="Oracle">Oracle</option>
+				<option value="Mysql">Mysql</option>
+				<option value="Sqlite">Sqlite</option>
+			</select>
+		<li>
+		<li>
+			<label>Table Prefix</label>
+			<input type='text' name='tablePrefix' value='<?=strToUpper($model->info->name)?>' />
+		<li>
+		<li>
+			<label>Table Suffix</label>
+			<input type='text' name='tableSuffix' value='' />
+		<li>
+		<li>
+			<label>src root Directory</label>
+			<input class='dir' type='text' name='srcRoot' value='src/' />
+		<li>
+		<li>
+			<label>SqlMap File</label>
+			<input class='dir' type='text' name='sqlMapFile' value='com/a2m/config/sqlmap/base/sqlmap-config.xml' />
+		<li>
+		<!--
+		<li>
+			<label>Controllers Directory</label>
+			<input class='dir' type='text' name='controllers' value='ctr/mng/conts/' />
+		<li>
+		<li>
+			<label>Models Directory</label>
+			<input class='dir' type='text' name='models' value='dao/' />
+		<li>
+		-->
+		<li>
+			<label>iBatis Query Directory</label>
+			<input class='dir' type='text' name='qry' value='com/a2m/module/<?=$model->info->name?>/qry/' />
+		<li>
+		<li>
+			<label>Views Directory</label>
+			<input class='dir' type='text' name='views' value='WebContent/WEB-INF/jsp/' />
+		<li>
+	</ul>
+	<nav class='buttons'>
+		<button type='submit'>내보내기</button>
+	</nav>
+</form>

@@ -1,0 +1,29 @@
+{
+	"write" : {
+		"writer" : "<?=$data->writer?>",
+		"version" : "1",
+		"wDate" : "<?=date('Y.m.d')?>",
+		"id" : "<?=$data->name?>00I",
+		"name" : "CRM &gt; <?=$data->kName?> &gt; 작성",
+		"contents" : [],
+		"comment" : ""
+	},
+	"view" : {
+		"writer" : "<?=$data->writer?>",
+		"version" : "1",
+		"wDate" : "<?=date('Y.m.d')?>",
+		"id" : "<?=$data->name?>00V",
+		"name" : "CRM &gt; <?=$data->kName?> &gt; 보기",
+		"contents" : [],
+		"comment" : ""
+	},
+	"list" : {
+		"writer" : "<?=$data->writer?>",
+		"version" : "1",
+		"wDate" : "<?=date('Y.m.d')?>",
+		"id" : "<?=$data->name?>00L",
+		"name" : "CRM &gt; <?=$data->kName?> &gt; 목록",
+		"contents" : [],
+		"comment" : ""
+	}
+}

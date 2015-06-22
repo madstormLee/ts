@@ -1,0 +1,59 @@
+<h1>테이블 설명</h1>
+<h2><?=$table?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>DB서버</td>
+			<td><?=$table->database?></td>
+			<td class='title'>User ID</td>
+			<td><?=$table->userId?></td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 명</td>
+			<td><?=$table?></td>
+			<td class='title'>작성일자</td>
+			<td><?=$table->CREATE_TIME?></td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 타입</td>
+			<td><?=$table->TABLE_TYPE?></td>
+			<td class='title'>테이블공간명</td>
+			<td><?=$table->TABLE_SCHEMA?></td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 설명</td>
+			<td colspan='3'><?=$table->TABLE_COMMENT?></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>No</th>
+		<th>Name</th>
+		<th>Datatype</th>
+		<th>Null Option</th>
+		<th>Comment</th>
+		<th>KEY</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $list as $row ): ?>
+	<tr>
+		<td><?=$i?></td>
+		<td><?=$row->Field?></td>
+		<td><?=$row->Type?></td>
+		<td><?=$row->Null?></td>
+		<td><?=$row->Comment?></td>
+		<td><?=$row->Key?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

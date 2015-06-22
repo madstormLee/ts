@@ -1,0 +1,20 @@
+<h1>Usecase view</h1>
+
+<section id='UsecaseList'>
+<? foreach( $model as $id => $row ): ?>
+<dl>
+	<dt class='titleBar'>
+		<a class='title' href='#openActs'><?=$row->title?> ( <?=count($row->user) ?> )</a>
+		<span class='uDate'><?=$row->uDate?></span>
+	</dt>
+	<dd class='content'><?=$row->content?></dd>
+	<dd class='acts'>
+		<ol>
+			<? foreach( $row->user as $act ): ?>
+			<li><a href="viewAct"><?=$act->title?></a><a href='delete'>X</a></li>
+			<? endforeach; ?>
+		</ol>
+	</dd>
+</dl>
+<? endforeach; ?>
+</section>

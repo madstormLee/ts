@@ -1,0 +1,26 @@
+<h1>Component Diagram Write</h1>
+
+<nav class='component'>
+	<a href='./index'>index</a>
+</nav>
+
+<form id='ComponentDiagramWrite' class='diagram' method='post' action='./save'>
+	<input type='hidden' name='file' id='file' value='<?=$model->getFile()?>' />
+
+	<nav class='buttons'>
+		<input type='text' name='title' id='title' value='<?=$model->title?>' />
+		<button type='submit'>save</button>
+	</nav>
+	<section class='units'><?=$model->components?></section>
+	<canvas id='relations' width='1000' height='700'><?=$model->relations?></canvas>
+</form>
+
+
+<section id='right'>
+	<section id='models' class='tools' data-href='~/components/model/index'>
+	</section>
+	<section id='controllers' class='tools' data-href='~/components/controller/index'>
+	</section>
+	<section id='components' class='tools' data-href='~/components/component/list'>
+	</section>
+</section>

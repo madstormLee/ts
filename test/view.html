@@ -1,0 +1,24 @@
+<h1>Test View</h1>
+
+<h2>Test Class Name: <?=get_class( $test ) ?></h2>
+
+<ul>
+	<li>tests: <?=count( $test->getTests() ) ?></li>
+	<li>asserts: <?=count( $test->success ) + count( $test->failure )  ?></li>
+	<li>success: <?=count( $test->success ) ?></li>
+	<li>failure: <?=count( $test->failure ) ?></li>
+</ul>
+
+<? if ( count( $test->failure ) > 0 ) : ?>
+<ul>
+	<? foreach( $test->failure as $row ): ?>
+	<li>
+		<?=$row->class?>::<?=$row->function ?>
+	</li>
+	<? endforeach; ?>
+</ul>
+<? endif; ?>
+
+
+
+<p id='testLog' class='notice'></p>

@@ -1,0 +1,73 @@
+{
+	"name": "<?=$name?>",
+	"id": "<?=$name?>",
+	"label":"<?=$label?>",
+	"description": "<?=$label?> 관리 Activity",
+	"actors": {
+		"admin": {
+			"name": "admin",
+			"label": "어드민"
+		},
+		"system": {
+			"name": "system",
+			"label": "시스템"
+		}
+	},
+	"activities" : {
+		"start": {
+			"actor": "admin",
+			"label": "시작",
+			"type": "start"
+		},
+		"list": {
+			"actor": "admin",
+			"label": "목록보기",
+			"type": "process"
+		},
+		"write": {
+			"actor": "admin",
+			"label": "<?=$label?>쓰기",
+			"type": "process"
+		},
+		"insert": {
+			"actor": "system",
+			"label": "<?=$label?>저장/보기 화면 출력",
+			"type": "db"
+		},
+		"view": {
+			"actor": "admin",
+			"label": "<?=$label?>보기",
+			"type": "process"
+		},
+		"listSearch": {
+			"actor": "admin",
+			"label": "검색",
+			"type": "process"
+		},
+		"search": {
+			"actor": "system",
+			"label": "목록검색/출력",
+			"type": "db"
+		},
+		"resultView": {
+			"actor": "admin",
+			"label": "결과확인",
+			"type": "process"
+		},
+		"rewrite": {
+			"actor": "admin",
+			"label": "<?=$label?>변경",
+			"type": "process"
+		},
+		"update": {
+			"actor": "system",
+			"label": "변경사항 저장",
+			"type": "db"
+		},
+		"view2": {
+			"actor": "admin",
+			"label": "변경사항 확인",
+			"type": "finish"
+		}
+	}
+}

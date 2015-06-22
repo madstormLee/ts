@@ -1,0 +1,39 @@
+{
+	"controllerMembers" : [
+		{				 
+			"member" : "Attributes",
+			"limit" : "private",
+			"name" : "Service",
+			"return" : "void",
+			"description" : "서비스 클래스"
+		},
+		{
+			"member" : "Methods",
+			"limit" : "public",
+			"name" : "doInit()",
+			"return" : "void",
+			"description" : "최초 페이지 요청 메소드"
+		},
+		{
+			"member" : "Methods",
+			"limit" : "public",
+			"name" : "doRequest()",
+			"return" : "void",
+			"description" : "상세 페이지 요청 메소드"
+		},
+		{
+			"member" : "Methods",
+			"limit" : "public",
+			"name" : "doSubmit()",
+			"return" : "void",
+			"description" : "데이터 조작 요청 메소드"
+		},
+		{
+			"member" : "Methods",
+			"limit" : "public",
+			"name" : "doReference()",
+			"return" : "void",
+			"description" : "뷰에 필요한 데이터 전송 메소드"
+		}
+	]
+}

@@ -1,0 +1,183 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+ol {
+	list-style: none;
+}
+section.a4inside {
+	position: relative;
+	width: 1000px;
+	height: 1385px;
+	overflow: hidden;
+}
+section.a4LandscapeInside {
+	position: relative;
+	width: 1385px;
+	height: 1000px;
+	overflow: hidden;
+}
+header {
+	display: none;
+}
+.naviButtons {
+	display: none;
+}
+#previewContainer .naviButtons {
+display: block;
+}
+p.pageHeader {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 30px;
+	border-bottom: 2px solid #000;
+}
+p.pageHeader .projectTitle ,
+p.pageHeader .documentType {
+	position: absolute;
+	display: inline-block;
+	top: 5px;
+	font-size: 15px;
+}
+p.pageHeader .projectTitle {
+	left: 0;
+}
+p.pageHeader .documentType {
+	right: 0;
+}
+
+p.pageFooter {
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #000;
+}
+p.pageFooter .version ,
+p.pageFooter .page {
+	position: absolute;
+	display: inline-block;
+	top: 7px;
+	font-size: 12px;
+}
+p.pageFooter .page {
+	width: 200px;
+	left: 50%;
+	margin-left: -100px;
+	text-align: center;
+}
+p.pageFooter .version {
+	right: 0;
+}
+
+/*********************** #frontPage *********************/
+#frontPage {
+}
+#frontPage hgroup.titles {
+text-align: right;
+display: block;
+position: absolute;
+top: 100px;
+right: 100px;
+}
+#frontPage h1 {
+display: block;
+font-size: 40px;
+}
+#frontPage h2 {
+font-size: 30px;
+margin-top: 20px;
+}
+#frontPage .teamAndLogo {
+text-align: right;
+position: absolute;
+top: 460px;
+right: 100px;
+}
+#frontPage.a4LandscapeInside .teamAndLogo {
+top: 360px;
+}
+#frontPage .teamAndLogo .team {
+font-size: 25px;
+}
+#frontPage .teamAndLogo #frontLogo {
+margin-top: 50px;
+}
+#frontPage .copyright {
+position: absolute;
+bottom: 20px;
+width: 100%;
+text-align: center;
+}
+#frontPage .copyright span {
+font-size: 20px;
+font-weight: 600;
+}
+#frontPage .copyright p {
+font-size: 15px;
+}
+#confirmation {
+position: absolute;
+top: 800px;
+width: 500px;
+left: 50%;
+margin-left: -250px;
+}
+.a4LandscapeInside #confirmation {
+	top: 650px;
+}
+#confirmation table {
+border-collapse: collapse;
+}
+#confirmation table td {
+width: 150px;
+height: 30px;
+text-align: center;
+border: 1px solid #000;
+}
+#confirmation table td.alt {
+width: 30px;
+}
+#confirmation table tr.signArea td {
+height: 130px;
+}
+/******************* tableOfContents *******************/
+#tableOfContents {
+}
+#tableOfContents h2 {
+text-align: center;
+font-size: 30px;
+}
+#tableOfContents ol {
+margin: 40px;
+}
+#tableOfContents ol li {
+position: relative;
+margin-top: 10px;
+}
+#tableOfContents ol li a {
+font-size: 20px;
+display: block;
+background: url(/phpStorm/images/orderDot.gif) repeat-x 0 0;
+}
+#tableOfContents ol li .title ,
+#tableOfContents ol li .page {
+background: #fff;
+}
+#tableOfContents ol li .title {
+}
+#tableOfContents ol li .page {
+position: absolute;
+right: 0;
+}
+/************************ viewAllList **************************/
+#viewAllList h1 {
+display: block;
+font-size: 22px;
+}
+#viewAllList .adminTable td {
+height: 30px;
+}

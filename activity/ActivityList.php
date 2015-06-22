@@ -1,0 +1,3 @@
+<?
+class ActivityList extends MadJsonList {
+}

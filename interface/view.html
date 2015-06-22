@@ -1,0 +1,58 @@
+<header>
+	<a class='btnClose' href='list'>X</a>
+</header>
+
+<form id='InterfaceWrite' method='post' action='save'>
+
+<div id='info'>
+<ul class='basicInfo'>
+	<li class='title'>CRM</li>
+	<li>
+		<label for='writer'>작성자</label>
+		<span><?=$model->writer?></span>
+	</li>
+	<li>
+		<label for='version'>버전</label>
+		<span><?=$model->version?></span>
+	</li>
+	<li>
+		<label for='wDate'>작성일</label>
+		<span><?=$model->wDate?></span>
+	</li>
+</ul>
+<ul class='screenInfo'>
+	<li>
+		<label for='screenId'>화면ID</label>
+		<span><?=$model->id?></span>
+	</li>
+	<li>
+		<label for='screenName'>화면명</label>
+		<span><?=$model->location?></span>
+	</li>
+</ul>
+</div>
+
+<div id='right'>
+	<dl>
+		<dt>내용</dt>
+		<dd>
+			<ol>
+				<? foreach( $model->contents as $contents ) : ?>
+				<li><?=$contents ?></li>
+				<? endforeach; ?>
+			</ol>
+		</dd>
+	</dl>
+	<dl>
+		<dt>비고</dt>
+		<dd> <?=nl2br($model->comment) ?> </dd>
+	</dl>
+</div>
+
+</form>
+
+<section id='mainContents'>
+	<section id='previewContainer' class='wireframe'>
+	<?=$preview?>
+	</section>
+</section>

@@ -1,0 +1,22 @@
+<h1><?=$model->label?> 보기</h1>
+
+<section id='<?=$model->name?>View'>
+
+<fieldset>
+<ul>
+	<?  foreach( $model->columns as $name => $column ) : ?>
+	<li>
+		<span class='title'><?=$column->label?></span>
+		<span ><?=$column->name?></span>
+	</li>
+	<? endforeach; ?>
+</ul>
+</fieldset>
+
+</section>
+
+<ul class='naviButtons'>
+	<li><a class='btnList' href="list">목록보기</a></li>
+	<li><a class='btnWrite' href="write">변경</a></li>
+</ul>
+

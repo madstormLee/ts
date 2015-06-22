@@ -1,0 +1,34 @@
+<h1>Config Index</h1>
+
+<ul class='naviButtons'>
+	<li><a href='write'>쓰기</a></li>
+	<li><a href='./createTable'>Table 생성</a></li>
+	<li><a href='./createTableDiagram'>Table Diagram 생성</a></li>
+	<li><a href='./createComponent'>Component 생성</a></li>
+	<li><a href='./createActivity'>Activity Diagram 생성</a></li>
+	<li><a href='./createClass'>Class Diagram 생성</a></li>
+	<li><a href='./createComponentDiagram'>Component Diagram 생성</a></li>
+	<li><a href='./createInterface'>Interface Diagram 생성</a></li>
+</ul>
+
+<table class='adminTable'>
+	<tr>
+		<th>프로그램</th>
+		<th>한글명</th>
+		<th>buttons</th>
+	</tr>
+	<? foreach( $list as $file => $config ) : ?>
+	<tr>
+		<td><a href='view?file=<?=$file?>'><?=$config->name?></a></td>
+		<td><?=$config->label?></td>
+		<td class='buttons'>
+			<a href='~/json/write?file=<?=$file?>'>변경</a>
+			<a href='~/json/write?file=<?=$file?>'>삭제</a>
+		</td>
+	</tr>
+	<? endforeach; ?>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

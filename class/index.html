@@ -1,0 +1,36 @@
+<h1>클래스 패키지 목록</h1>
+
+<table class='adminTable'>
+	<thead>
+		<tr>
+			<th>번호</th>
+			<th>ID</th>
+			<th>컴포넌트명</th>
+			<th>설 명</th>
+		</tr>
+	</thead>
+	<tbody>
+		<? $i=1; foreach ( $index as $row ): ?>
+		<tr>
+			<td><?=$i?></td>
+			<td><a href='view?file=<?=$row->getFile()?>'><?=$row->name?></a></td>
+			<td><?=$row->label?></td>
+			<td><?=$row->description?></td>
+		</tr>
+		<? ++$i; endforeach; ?>
+	</tbody>
+</table>
+
+<? if ( $index->isEmpty() ) : ?>
+<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>
+
+
+<section id='right'>
+	<nav class='component'>
+		<a href='./'>index</a>
+		<a href='viewAll'>출력용 전체보기</a>
+		<a href='~/Web2Pdf/download?name=class'>pdf 다운로드</a>
+	</nav>
+
+</section>

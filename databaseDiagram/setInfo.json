@@ -1,0 +1,27 @@
+{
+	"name": {
+		"label": "데이터베이스 명",
+		"placeholder": "database",
+		"type": "text"
+	},
+	"label": {
+		"label": "데이터베이스 한글명",
+		"placeholder": "데이터베이스",
+		"type": "text"
+	},
+	"server": {
+		"label": "서버 타입",
+		"placeholder": "oracle, mysql, etc.",
+		"type": "text"
+	},
+	"prefix": {
+		"label": "테이블 접두어",
+		"placeholder": "MAD_",
+		"type": "text"
+	},
+	"comment": {
+		"label": "설명",
+		"placeholder": "PhpStorm",
+		"type": "text"
+	}
+}

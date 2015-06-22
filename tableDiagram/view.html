@@ -1,0 +1,63 @@
+<h1>테이블 설명</h1>
+<h2><?=$table->name?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>DB서버</td>
+			<td>210.118.0.10:1521:erpdb</td>
+			<td class='title'>User ID</td>
+			<td><?//=$table->id?>TECHCO</td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 명</td>
+			<td><?=$table->name?></td>
+			<td class='title'>작성일자</td>
+			<td><?=$table->wDate?></td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 타입</td>
+			<td><?=$table->type?></td>
+			<td class='title'>테이블공간명</td>
+			<td>TECHCO</td>
+		</tr>
+		<tr>
+			<td class='title'>테이블 설명</td>
+			<td colspan='3'><?=$table->description?></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>순번</th>
+		<th>칼럼 명</th>
+		<th>칼럼설명</th>
+		<th>타입</th>
+		<th>Null?</th>
+		<th>제약조건</th>
+		<th>인덱스</th>
+		<th>초기값</th>
+	</tr>
+</thead>
+<tbody>
+	<?
+	$i=1; foreach ( $table->columns as $column ): ?>
+	<tr>
+		<td><?=$i?></td>
+		<td><?=$column->name?></td>
+		<td><?=$column->description?></td>
+		<td><?=$column->type?></td>
+		<td><?=$column->notNull == 'TRUE' ? 'N':'Y' ?></td>
+		<td>
+			<?=($column->primaryKey == 'TRUE') ? 'PK':'';?>
+			<?=($column->unique == 'TRUE') ? 'UK':'';?>
+		</td>
+		<td></td>
+		<td><?=$column->default?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>

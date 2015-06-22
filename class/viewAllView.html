@@ -1,0 +1,296 @@
+<h1>패키지 클래스 보기</h1>
+<h2><?=$order->add($model->label, $page)?></h2>
+
+<!-- classDiagram -->
+<section id='classDiagram'>
+	<fieldset>
+		<legend>Controller</legend>
+		<dl class='controllers'>
+			<dt>
+				<span>SimpleController</span>
+				<b><?=$model->name?>Controller00L</b>
+			</dt>
+			<dd class='private'>- model:Crm<?=$model->name?></dd>
+			<dd class='public'>
+				<ul>
+					<li>+ doInit(request:HttpServletRequest,response:HttpServletResponse,Reperence:Map):ModelAndView</li>
+					<li>+ doRequest(request:HttpServletRequest,response:HttpServletResponse,Reperence:Map):ModelAndView</li>
+					<li>+ doSubmit(request:HttpServletRequest,response:HttpServletResponse,mode:String):ModelAndView</li>
+					<li>+ doReference(request:HttpServletRequest):Map</li>
+				</ul>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Model</legend>
+		<dl class='interface'>
+			<dt>
+				<span>interface</span>
+				<b>User</b>
+			</dt>
+			<dd class='private'></dd>
+			<dd class='public'>
+				<ul>
+					<li>+ getList(args:Map):List</li>
+					<li>+ getMap(args:Map):Map</li>
+					<li>+ insert(args:Map):void</li>
+					<li>+ update(args:Map):void</li>
+					<li>+ delete(args:Map):void</li>
+				</ul>
+			</dd>
+		</dl>
+		<img id='implementArrow' src='/images/implementArrow.gif' />
+		<dl class='model'>
+			<dt>
+				<span>AbstractDao</span>
+				<b>UserService</b>
+			</dt>
+			<dd class='private'></dd>
+			<dd class='public'>
+				<ul>
+					<li>+ getList(args:Map):List</li>
+					<li>+ getMap(args:Map):Map</li>
+					<li>+ insert(args:Map):void</li>
+					<li>+ update(args:Map):void</li>
+					<li>+ delete(args:Map):void</li>
+				</ul>
+			</dd>
+			<dd class='member'>sqlMap:SqlMapClient</dd>
+		</dl>
+	</fieldset>
+</section>
+
+<!-- package view -->
+<?
+$data = new MadData;
+$data->packageName = 'com.a2m.module.crm.ctr.mng.conts.Crm_';
+$data->daoPackageName = 'com.a2m.module.crm.dao';
+?>
+<table class='tableSummary componentViewTable'>
+	<thead>
+		<th>패키지</th>
+		<th>클래스</th>
+		<th>설명</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan='3'><?=$data->packageName?><?=$model->name?></td>
+			<td><?=$model->name?>00L</td>
+			<td>목록, 검색을 담당하는 컨트롤러</td>
+		</tr>
+		<tr>
+			<td><?=$model->name?>00I</td>
+			<td>저장, 변경, 삭제를 담당하는 컨트롤러</td>
+		</tr>
+		<tr>
+			<td><?=$model->name?>00V</td>
+			<td>보기를 담당하는 컨트롤러</td>
+		</tr>
+
+		<tr>
+			<td rowspan='2'><?=$data->daoPackageName ?></td>
+			<td><?=$model->name?>Service</td>
+			<td>구현한 model</td>
+		</tr>
+		<tr>
+			<td><?=$model->name?></td>
+			<td>인터페이스</td>
+		</tr>
+</table>
+
+</section>
+<section class='a4inside'>
+<p class='pageHeader'>
+	<span class='projectTitle'>고객 관계 관리 시스템</span>
+	<span class='documentType'>컴포넌트 정의서</span>
+</p>
+<p class='pageFooter'>
+	<span class='page'><?=++$g->page?> 페이지</span>
+	<span class='version'>Ver. 1</span>
+</p>
+
+<!--madTemp this is mock table explanation -->
+<h2><?=$order->add($model->name . 'Controller', $page)?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>패키지</td>
+			<td><?=$data->packageName?><?=$model->name?></td>
+			<td class='title'>클래스명</td>
+			<td><?=$model->name?>Controller</td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$model->description?></td>
+		</tr>
+		<tr>
+			<td class='title'>종류</td>
+			<td colspan='3'>Class</td>
+		</tr>
+		<tr>
+			<td class='title'>상속 및 구현</td>
+			<td colspan='3'>com.a2m.framework.controller.SimpleController</td>
+		</tr>
+		<tr>
+			<td class='title'>관련 테이블</td>
+			<td colspan='3'>CRM_<?=strToUpper($model->name)?></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>Member</th>
+		<th>한정</th>
+		<th>이름</th>
+		<th>Return/Type</th>
+		<th>설명</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $controllerMethods->controllerMembers as $row ): ?>
+	<tr>
+		<td><?=$row->member?></td>
+		<td><?=$row->limit?></td>
+		<td><?=$row->name?></td>
+		<td><?=$row->return?></td>
+		<td><?=$row->description?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $controllerMethods->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>
+
+</section>
+<section class='a4inside'>
+<p class='pageHeader'>
+	<span class='projectTitle'>고객 관계 관리 시스템</span>
+	<span class='documentType'>컴포넌트 정의서</span>
+</p>
+<p class='pageFooter'>
+	<span class='page'><?=++$g->page?> 페이지</span>
+	<span class='version'>Ver. 1</span>
+</p>
+
+
+
+<!--madTemp this is mock table explanation -->
+<!-- Service -->
+<h2><?=$order->add( 'Crm' . $model->name . 'Service', $page)?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>패키지</td>
+			<td><?=$data->daoPackageName?></td>
+			<td class='title'>클래스명</td>
+			<td>Crm<?=$model->name?>Service</td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'>서비스 구현 클래스</td>
+		</tr>
+		<tr>
+			<td class='title'>종류</td>
+			<td colspan='3'>Class</td>
+		</tr>
+		<tr>
+			<td class='title'>상속 및 구현</td>
+			<td colspan='3'>com.a2m.module.crm.ctr.dao.Crm<?=$model->name?>Service</td>
+		</tr>
+		<tr>
+			<td class='title'>관련 테이블</td>
+			<td colspan='3'>CRM_<?=strToUpper($model->name)?></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>Member</th>
+		<th>한정</th>
+		<th>이름</th>
+		<th>Return/Type</th>
+		<th>설명</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $modelMethods->members as $row ): ?>
+	<tr>
+		<td><?=$row->member?></td>
+		<td><?=$row->limit?></td>
+		<td><?=$row->name?></td>
+		<td><?=$row->return?></td>
+		<td><?=$row->description?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $controllerMethods->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>
+
+<!--madTemp this is mock table explanation -->
+<!-- interface -->
+<h2><?=$order->add( 'Crm' . $model->name, $page)?></h2>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>패키지</td>
+			<td><?=$data->daoPackageName?></td>
+			<td class='title'>클래스명</td>
+			<td>Crm<?=$model->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$model->name?>서비스 인터페이스</td>
+		</tr>
+		<tr>
+			<td class='title'>종류</td>
+			<td colspan='3'>Interface</td>
+		</tr>
+		<tr>
+			<td class='title'>상속 및 구현</td>
+			<td colspan='3'></td>
+		</tr>
+		<tr>
+			<td class='title'>관련 테이블</td>
+			<td colspan='3'>CRM_<?=strToUpper($model->name)?></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>Member</th>
+		<th>한정</th>
+		<th>이름</th>
+		<th>Return/Type</th>
+		<th>설명</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $modelMethods->members as $row ): ?>
+	<tr>
+		<td><?=$row->member?></td>
+		<td><?=$row->limit?></td>
+		<td><?=$row->name?></td>
+		<td><?=$row->return?></td>
+		<td><?=$row->description?> 선언</td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $controllerMethods->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

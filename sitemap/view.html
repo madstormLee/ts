@@ -1,0 +1,38 @@
+<h1>사이트맵 보기</h1>
+
+<h2><?=$current->label?></h2>
+
+<table id='content'>
+	<tr>
+		<td class='header'>Name</td>
+		<td><?=$current->name?></td>
+	</tr>
+	<tr>
+		<td class='header'>Label</td>
+		<td><?=$current->label?></td>
+	</tr>
+	<tr>
+		<td class='header'>Href</td>
+		<td><a href='<?=$current->href?>'><?=$current->href?></a></td>
+	</tr>
+	<tr>
+		<td class='header'>Controller</td>
+		<td><?=$current->controller?></td>
+	</tr>
+	<tr>
+		<td class='header'>Action</td>
+		<td><?=$current->action?></td>
+	</tr>
+</table>
+
+<? if ( $current->subDir ) : ?>
+<h2><?=$current->label?> 서브 디렉토리 현황</h2>
+<section id='subDirView'>
+	<dl>
+	<? foreach( $current->subDir as $value ): ?>
+		<dt><?=$value->label?></dt>
+		<dd><?=$value->action?></dd>
+	<? endforeach; ?>
+	</dl>
+</section>
+<? endif; ?>

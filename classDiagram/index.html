@@ -1,0 +1,23 @@
+<h1>Component Diagram Index</h1>
+
+<nav class='component'>
+	<a href='./write'>write</a>
+</nav>
+
+<section id='ClassDiagramList' class='diagramList'>
+<ul>
+	<? foreach( $list as $row ): ?>
+	<li>
+		<a href='./view?file=<?=$row->getFile()?>'><?=$row->getBasename()?></a>
+		<span class='date' ><?=date( 'Y-m-d H:i:s', $row->getInfo()->getCtime() )?></span>
+		<nav class='buttons'>
+			<a href='./write?file=<?=$row->getFile()?>'>edit</a>
+			<a href='./delete?file=<?=$row->getFile()?>'>delete</a>
+		</nav>
+	</li>
+	<? endforeach; ?>
+</ul>
+<? if ( $list->isEmpty() ) : ?>
+<p class='notice'>No List</p>
+<? endif; ?>
+</section>

@@ -1,0 +1,25 @@
+<h1>Component Index</h1>
+
+
+<section class='diagramList'>
+	<ul>
+		<? foreach( $index as $row ): ?>
+		<li>
+		<a href='./view?file=<?=$row->getFile()?>'><?=$row->getBasename()?></a>
+		<span class='date' ><?=date( 'Y-m-d H:i:s', $row->getInfo()->getCtime() )?></span>
+		<nav class='buttons'>
+			<a href='./write?file=<?=$row->getFile()?>'>edit</a>
+			<a href='./delete?file=<?=$row->getFile()?>'>delete</a>
+		</nav>
+		</li>
+		<? endforeach; ?>
+	</ul>
+
+	<? if ( $index->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+	<? endif; ?>
+</section>
+
+<section class='right medium-3 columns'>
+	<section data-href='./write'></section>
+</section>

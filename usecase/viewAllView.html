@@ -1,0 +1,64 @@
+<h1>유스케이스 보기</h2>
+
+<h2><?=$model->name?></h2>
+
+<section id='usecaseDiagram'>
+<dl class='actor'>
+	<dd><img src='~/images/actor.gif' /></dd>
+	<dt><?=implode( ', ', $model->actors->get() ) ?></dt>
+</dl>
+<img src='~/images/line.gif' />
+<p class='case'><?=$model->name?></p>
+</section>
+
+<section id='UsecaseViewSection'>
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>유스케이스 ID</td>
+			<td><?=$model->id?></td>
+			<td class='title'>유스케이스 명</td>
+			<td><?=$model->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$model->description?></td>
+		</tr>
+		<tr>
+			<td class='title'>액터</td>
+			<td colspan='3'><?=implode(', ',$model->actors->get())?></td>
+		</tr>
+		<tr>
+			<td class='title'>사전 조건</td>
+			<td colspan='3'><?=implode('<br />',$model->preConditions->get())?></td>
+		</tr>
+		<tr>
+			<td class='title'>사후 조건</td>
+			<td colspan='3'><?=implode('<br />',$model->postConditions->get())?></td>
+		</tr>
+	</tbody>
+</table>
+
+</section>
+
+<? if ( count( $model->activities ) > 0 ) : ?>
+<section id='UsecaseActivity'>
+	<ul class='actDivision'>
+		<li>액터 행위</li>
+		<li>시스템 행위</li>
+	</ul>
+	<? foreach( $model->activities as $activity ): ?>
+	<dl>
+		<dt><?=$activity->name?></dt>
+		<dd class='acts'>
+			<ol>
+			<? $i=1; foreach( $activity->acts as $act ) : ?>
+				<li class='<?=$act->side?>'><span><?=$i?> . <?=$act->brief?></span></li>
+			<? ++$i; endforeach; ?>
+			</ol>
+		</dd>
+	</dl>
+	<? endforeach; ?>
+</section>
+<? endif; ?>
+

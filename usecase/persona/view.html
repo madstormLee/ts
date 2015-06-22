@@ -1,0 +1,19 @@
+<h1>Persona 보기</h1>
+
+<img src='<?=$model->image?>' />
+
+<table class='adminTable'>
+	<? foreach( $model as $key => $value ): ?>
+	<? if ( $key == 'image' ) continue; ?>
+	<tr>
+		<td class='header'><?=$key?></td>
+		<td><?=$value?></td>
+	</tr>
+	<? endforeach; ?>
+</table>
+
+<ul class='naviButtons'>
+	<li><a class='btnList' href="list">목록보기</a></li>
+	<li><a class='btnRewrite' href='write?id=<?=$model->id?>'>변경하기</a></li>
+	<li><a class='btnDelete' href="delete?id=<?=$model->id?>">삭제하기</a></li>
+</ul>

@@ -1,0 +1,86 @@
+<style>
+#UsecaseWriteForm {
+display: block;
+min-height: 500px;
+padding: 20px;
+}
+#UsecaseWriteForm .tableSummary td {
+text-align: left;
+}
+#UsecaseWriteForm .tableSummary td.title {
+text-align: center;
+}
+</style>
+
+<? if ( $model->id ): ?>
+<h1>Usecase 변경</h1>
+<form id='UsecaseWriteForm' method='post' action='update'>
+<? else: ?>
+<h1>Usecase 작성</h1>
+<form id='UsecaseWriteForm' method='post' action='insert'>
+<? endif; ?>
+
+<table class='tableSummary'>
+	<tbody>
+		<tr>
+			<td class='title'>유스케이스 ID</td>
+			<td><?=$form->id?></td>
+			<td class='title'>유스케이스 명</td>
+			<td><?=$form->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>개요</td>
+			<td colspan='3'><?=$form->description?></td>
+		</tr>
+		<tr>
+			<td class='title'>액터</td>
+			<td colspan='3'><?=$form->actors?></td>
+		</tr>
+		<tr>
+			<td class='title'>사전 조건</td>
+			<td colspan='3'><?=$form->preCondition?></td>
+		</tr>
+		<tr>
+			<td class='title'>사후 조건</td>
+			<td colspan='3'><?=$form->postCondition?></td>
+		</tr>
+	</tbody>
+</table>
+
+<ul class='buttons'>
+	<li><button class='submit'>저장</button></li>
+</ul>
+
+</form>
+
+
+
+<!-- from XP -->
+<h1>Usecase Write</h1>
+
+<form id='write' class='simple' method='post' action='./save'>
+	<ul>
+		<li>
+			<fieldset>
+			<legend class='persona'>Users</legend>
+				<? foreach( $users as $key => $row ): ?>
+				<input type='checkbox' id='<?=$row->id?>' name='user[]' value='<?=$row->id?>' />
+				<label for='<?=$row->id?>'><?=$row->id?></label>
+				<? endforeach; ?>
+			</fieldset>
+		</li>
+		<li>
+			<label for='title'>제목</label>
+			<input type='text' name='title' id='title' />
+		</li>
+		<li>
+			<label for='content'>내용</label>
+			<textarea name='content' id='content'></textarea>
+		</li>
+	</ul>
+	<nav class='button'>
+		<button>추가</button>
+	</nav>
+</form>
+
+

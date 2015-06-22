@@ -1,0 +1,36 @@
+<h1>인터페이스 리스트</h1>
+
+<ul class='naviButtons'>
+	<li><a href='write'>생성</a></li>
+	<li><a href='~/json/write?file=<?//=$g->phpStorm->getFile('site')?>'>sitemap 편집</a></li>
+	<li><a href='viewAll'>출력용 전체보기</a></li>
+	<li><a href='~/Web2Pdf/download?name=interface'>pdf 다운로드</a></li>
+</ul>
+
+<table class='controller adminTable'>
+	<thead>
+	<tr>
+		<th>아이디</th>
+		<th>위치</th>
+		<th>변경</th>
+		<th>삭제</th>
+	</tr>
+	</thead>
+	<tbody>
+	<? foreach( $list as $file => $interface ) : ?>
+	<? foreach( $interface->actions as $action => $row ):
+	$preview = $viewsDir . $interface->controller ."/$action";
+	?>
+	<tr id='<?=$controller?>'>
+		<td><?=$row->id?></td>
+		<td><a href='view?file=<?=$file?>&action=<?=$action?>&preview=<?=$preview?>'><?=$row->location?></a></td>
+		<td>
+			<a href='write?file=<?=$file?>&action=<?=$action?>&preview=<?=$preview?>'>변경</a>
+			<a href='~/json/write?file=<?=$file?>'>json</a>
+		</td>
+		<td><a href='delete?file=<?=$file?>&action=<?=$action?>'>삭제</a></td>
+	</tr>
+	<? endforeach; ?>
+	<? endforeach; ?>
+	</tbody>
+</table>

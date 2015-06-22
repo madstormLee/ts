@@ -1,0 +1,17 @@
+<h1>Erd Write</h1>
+
+<nav class='component'>
+	<a href='./index'>index</a>
+</nav>
+
+<form id='ErdWrite' method='post' action='./save'>
+	<nav class='buttons'>
+		<input type='hidden' name='file' id='file' value='<?=$model->getFile()?>' />
+		<input type='text' name='title' id='title' value='<?=$model->title?>' />
+		<button type='submit'>save</button>
+	</nav>
+	<section id='entities'><?=$model->entities?></section>
+	<canvas id='relations' width='1000' height='700'><?=$model->relations?></canvas>
+</form>
+
+<aside id='tableList' class='tools' data-href='~/tools/table/list'></aside>

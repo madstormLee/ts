@@ -1,0 +1,39 @@
+<section id='frontPage' class='a4LandscapeInside'>
+	<hgroup class='titles'>
+		<h1><?=$phpStorm->info->label?> 프로젝트</h1>
+		<h2><?=$documentType?></h2>
+		<h3>Ver. <?=$version?></h3>
+	</hgroup>
+
+	<main class='teamAndLogo'>
+		<p class='team'> 관리부서 : <?=$phpStorm->info->team?> </p>
+		<img id='frontLogo' src='/phpStorm/projects/<?=$phpStorm->dirs->projectRoot . $phpStorm->files->logo?>' />
+	</div>
+	<div id='confirmation'>
+	<table>
+		<tbody>
+			<tr>
+				<td rowspan='3' class='alt'>확인</td>
+				<td>작성</td>
+				<td>검토</td>
+				<td>승인</td>
+			</tr>
+			<tr class='signArea'>
+				<td></td>
+				<td></td>
+				<td></td>
+			</td>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</td>
+		</tbody>
+	</table>
+	</main>
+
+	<footer class='copyright'>
+		<span>Copyright © A2M</span>
+		<p>A2M의 사전 승인 없이 본 내용의 전부 또는 일부에 대한 복사, 전재, 배포, 사용을 금합니다.</p>
+	</footer>
+</section>

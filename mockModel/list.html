@@ -1,0 +1,50 @@
+<h1><?=$model->label?> 목록</h1>
+
+<form id='ListSearch' class='listSearch' method='get' action='?'>
+	<fieldset>
+	<legend>검색</legend>
+	<ul class='searchFields'>
+	<?
+	foreach( $list->getSearchables() as $name => $row ) :
+	$form = $formFactory->create( $row->type );
+	$form->id = $name;
+	$form->label = $row->label;
+	?>
+		<li>
+			<?=$form->getLabel()?><?=$form?>
+		</li>
+	<? endforeach; ?>
+	</ul>
+	</fieldset>
+	<ul class='buttons'>
+		<li><button class='btnSubmit' type='submit'>검색</button></li>
+	</ul>
+</form>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<? foreach ( $list->getSelectedHeaders() as $name => $th ): ?>
+		<th><?=$th?></th>
+		<? endforeach; ?>
+	</tr>
+</thead>
+<tbody>
+	<? foreach ( $list as $row ): ?>
+	<tr>
+		<? foreach ( $row as $td ): ?>
+		<td><?=$td?></td>
+		<? endforeach; ?>
+	</tr>
+	<? endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>
+<?=$list->getPageNavi()?>
+
+<ul class='naviButtons'>
+	<li><a class='btnWrite' href="write">글 쓰기</a></li>
+</ul>

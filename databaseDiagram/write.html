@@ -1,0 +1,23 @@
+<h1>데이터베이스 정보 생성</h1>
+
+<form id='databaseDiagramWrite' method='post' action='save'>
+	<fieldset>
+		<legend>데이터 베이스 정보</legend>
+		<ul class='adminForm'>
+			<? 
+			foreach( $form as $name => $formUnit ) :
+			$formUnit->name = $name;
+			$formUnit->id = $name;
+			?>
+			<li> <?=$formUnit->getLabel()?> <?=$formUnit?> </li>
+			<? endforeach; ?>
+		</ul>
+	</fieldset>
+	<ul class='buttons'>
+		<li><button type='submit'>만들기</button></li>
+	</ul>
+</form>
+
+<ul class='naviButtons'>
+	<li><a href='list'>목록</a></li>
+</ul>

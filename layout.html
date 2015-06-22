@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+	<head>
+		<title><?=$config->info->title?> - <?=$config->info->subtitle?></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet' type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/normalize.min.css" media='all' />
+		<link rel='stylesheet' type='text/css' href="./style.css" media='all' />
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/modernizr.js"></script>
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/jquery.js"></script>
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
+		<script type='text/javascript' src="./script.js"></script>
+	</head>
+	<body id='body'>
+		<header class='sticky'>
+			<section id="modal" class="reveal-modal" data-reveal></section>
+
+			<nav class="top-bar" data-topbar role="navigation">
+				<ul class="title-area">
+					<li class="name"><h1><a id='logo' href="~/"><?=$config->info->title?></a></h1></li>
+					<li class="toggle-topbar menu-icon"><a href="~/"><span>menu</span></a></li>
+				</ul>
+
+				<section class="top-bar-section">
+					<ul class="menu left">
+						<? foreach( $config->sitemap as $row ): ?>
+						<li <?=(isset($row->subs))?'class="has-dropdown"':'';?>>
+						<a href='<?=$row->href?>'><?=$row->label?></a>
+						<? if ( isset($row->subs) ): ?>
+						<ul class="dropdown">
+							<? foreach( $row->subs as $sub ): ?>
+							<li><a href='<?=$sub->href?>'><?=$sub->label?></a></li>
+							<? endforeach; ?>
+						</ul>
+						<? endif; ?>
+						</li>
+						<? endforeach; ?>
+					</ul>
+
+					<ul class="personal right">
+						<? if ( $config->session->user ) : ?>
+						<li><a href='~/xp/'>xp</a></li>
+						<li><a href='~/sessionUser/logout'>logout</a></li>
+						<? else: ?>
+						<li class="active"><a href='~/sessionUser/login'>login</a></li>
+						<? endif; ?>
+					</ul>
+				</section>
+			</nav>
+		</header>
+
+		<main class='columns'><?=$main?></main>
+
+		<footer class='columns'>
+			<? if( isset($config->session->project) ) : ?>
+			<span class='notice'>project: <?=$config->session->project?></span>
+			<? else: ?>
+			<span class='copyrights'><?=$config->info->author?> <?=$config->info->year?>::<?=$config->info->project?></span>
+			<? endif; ?>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<h1>Activity 목록</h1>
+
+<ul class='naviButtons'>
+	<li><a href='viewAll'>출력용 전체보기</a></li>
+	<li><a href='~/Web2Pdf/downloadPdf?name=activity'>pdf 다운로드</a></li>
+</ul>
+
+<table class='adminTable'>
+<thead>
+	<tr>
+		<th>번호</th>
+		<th>액티비티 명</th>
+		<th>액티비티 ID</th>
+		<th>설 명</th>
+	</tr>
+</thead>
+<tbody>
+	<? $i=1; foreach ( $list as $row ): ?>
+	<tr>
+		<td><?=$i?></td>
+		<td><a href='view?file=<?=$row->getFile()?>'><?=$row->label?></a></td>
+		<td><?=$row->id?></td>
+		<td><?=$row->description?></td>
+	</tr>
+	<? ++$i; endforeach; ?>
+</tbody>
+</table>
+
+<? if ( $list->isEmpty() ) : ?>
+	<p class='noContent'>리스트가 없습니다.</p>
+<? endif; ?>

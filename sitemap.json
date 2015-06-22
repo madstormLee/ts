@@ -1,0 +1,10 @@
+{
+	"sitemap": {
+		"label": "sitemap",
+		"component": "sitemap"
+	},
+	"project": {
+		"label": "project",
+		"component": "mad/project"
+	}
+}

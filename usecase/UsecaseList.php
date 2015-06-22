@@ -1,0 +1,3 @@
+<?
+class UsecaseList extends MadJsonList {
+}

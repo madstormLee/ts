@@ -1,0 +1,22 @@
+#siteUrl {
+width: 500px;
+}
+#forms {
+position: absolute;
+right: 0;
+width: 200px;
+border: 1px solid #000;
+}
+#tools {
+position: absolute;
+right: 0;
+width: 200px;
+border: 1px solid #000;
+margin-top: 10px;
+}
+#previewContainer .current {
+border: 1px solid #f99;
+}
+#previewContainer .selected {
+border: 1px solid #f00;
+}

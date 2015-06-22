@@ -1,0 +1,37 @@
+<h1>this will be write form.</h1>
+<link rel='stylesheet' type='text/css' href='./style.css' />
+
+<table class='tableSummary componentViewTable'>
+	<tbody>
+		<tr>
+			<td class='title'>컴포넌트 ID</td>
+			<td colspan='2'><?=$model->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>컴포넌트 명</td>
+			<td colspan='2'><?=$model->kName?></td>
+		</tr>
+		<tr>
+			<td class='title'>인터페이스 명</td>
+			<td colspan='2'><?=$model->modelInterface?></td>
+		</tr>
+		<tr>
+			<td class='title'>컴포넌트 개요</td>
+			<td colspan='2'><?=$model->description?></td>
+		</tr>
+		<tr>
+			<td rowspan='3' class='title'>Classes</td>
+			<td><?=$model->controllerName?>test</td>
+			<td><?=$model->kName?> 정보 제공을 위한 컨트롤러 클래스</td>
+		</tr>
+		<tr>
+			<td><?=$model->modelName?>test</td>
+			<td><?=$model->kName?> 관리 및 검색 서비스 구현 클래스</td>
+		</tr>
+		<tr>
+			<td><?=$model->modelInterface?>test</td>
+			<td><?=$model->kName?> 관리 및 검색을 위한 데이터 처리 인터페이스</td>
+		</tr>
+	</tbody>
+</table>
+

@@ -1,0 +1,11 @@
+.adminTable th {
+	height: 30px;
+}
+.adminTable td {
+	height: 28px;
+	text-align: left;
+	padding-left: 10px;
+}
+.adminTable td:first {
+	text-align: center;
+}

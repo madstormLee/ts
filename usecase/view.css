@@ -1,0 +1,70 @@
+#usecaseDiagram {
+text-align: center;
+}
+#usecaseDiagram .actor {
+display: inline-block;
+vertical-align: middle;
+}
+#usecaseDiagram .actor dt,
+#usecaseDiagram .actor dd {
+}
+#usecaseDiagram .case {
+display: inline-block;
+background: url(/phpStorm/images/case.gif) no-repeat 0 0;
+text-align: center;
+width: 295px;
+height: 96px;
+line-height: 96px;
+vertical-align: middle;
+}
+
+#UsecaseViewSection {
+padding: 20px;
+}
+#UsecaseActivity {
+border: 1px solid #ccc;
+padding: 10px;
+margin: 0 20px 20px 20px;
+}
+#UsecaseActivity .actDivision {
+text-align: center;
+margin-top: 5px;
+}
+#UsecaseActivity .actDivision li {
+display: inline-block;
+width: 48%;
+padding: 3px 0;
+border: 1px solid #000;
+background: #ccc;
+font-weight: 600;
+}
+#UsecaseActivity dl {
+margin: 0 20px;
+margin-top: 10px;
+}
+#UsecaseActivity dl dt {
+border-top: 1px solid #999;
+border-bottom: 1px solid #999;
+padding: 2px 0;
+background: #eee;
+text-align: center;
+}
+#UsecaseActivity ol {
+}
+#UsecaseActivity ol li {
+}
+#UsecaseActivity ol .actor {
+text-align: left;
+}
+#UsecaseActivity ol .system {
+text-align: right;
+}
+#UsecaseActivity ol li span {
+display: inline-block;
+width: 45%;
+padding: 2px 10px;
+margin: 2px 10px;
+border: 1px solid #ccc;
+text-align: left;
+background: #eee;
+}

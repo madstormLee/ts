@@ -1,0 +1,33 @@
+{
+	"title": "PhpStorm preset",
+	"forms": {
+		"controllers": {
+			"id": "controllers",
+			"name": "controllers",
+			"label": "컨트롤러 디렉터리",
+			"placeholder": "controllers/",
+			"value": "controllers/"
+		},
+		"views": {
+			"id": "views",
+			"name": "views",
+			"label": "뷰 디렉터리",
+			"placeholder": "views/",
+			"value": "views/"
+		},
+		"models": {
+			"id": "models",
+			"name": "models",
+			"label": "모델 디렉터리",
+			"placeholder": "models/",
+			"value": "models/"
+		},
+		"database": {
+			"id": "database",
+			"name": "database",
+			"label": "db type",
+			"placeholder": "mysql",
+			"value": "mysql"
+		}
+	}
+}

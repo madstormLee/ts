@@ -1,0 +1,52 @@
+<dl id='process'>
+	<dt>프로세스명</dt>
+	<dd><?=$model->description?></dd>
+</dl>
+
+<section id='activityDiagram'>
+<table>
+	<thead>
+		<tr>
+			<? foreach( $model->actors as $actor ) : ?>
+			<th width='50%'><?=$actor->label?></th>
+			<? endforeach; ?>
+		</tr>
+	</thead>
+	<tbody>
+		<? $prevActor = '';
+		foreach( $model->activities as $actorName => $activity ):
+		?>
+		<? if ( $prevActor != '' && $activity->actor != $prevActor ) : ?>
+		<tr>
+			<td colspan='2'>
+			<? if ( $activity->actor == 'admin' ): ?>
+			<img src='/phpStorm/images/Activity/right2left.gif' /></td>
+			<? else: ?>
+			<img src='/phpStorm/images/Activity/left2right.gif' />
+			<? endif; ?>
+			</td>
+		</tr>
+		<? endif; ?>
+		<tr>
+			<? foreach( $model->actors as $actor ): ?>
+			<? if ( $activity->actor == $actor->name ): ?>
+			<td>
+				<? if ( $prevActor == $activity->actor ) : ?>
+				<p class='self'></p>
+				<? endif; ?>
+				<span class='<?=$activity->type?>'><?=$activity->label?></span>
+			</td>
+			<? else: ?>
+			<td></td>
+			<? endif; ?>
+			<? endforeach; ?>
+		</tr>
+		<? $prevActor = $activity->actor; ?>
+		<? endforeach; ?>
+	</tbody>
+</table>
+</section>
+
+<ul class='naviButtons'>
+	<li><a href='~/json/write?file=<?=$g->get->file?>'>json파일 편집</a></li>
+</ul>

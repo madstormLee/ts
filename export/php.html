@@ -1,0 +1,17 @@
+<h1>Export Php</h1>
+
+<ul class='naviButtons'>
+	<li><a href='presetList'>presetList</a></li>
+</ul>
+
+<h2>정보 입력</h2>
+<form id='ExportPhp' class='adminForm' method='post' action='exportingPhp?preset=<?=$g->get->preset?>'>
+	<ul>
+		<? foreach( $form as $formUnit ): ?>
+		<li><?=$formUnit->getLabel()?><?=$formUnit?></li>
+		<? endforeach; ?>
+	</ul>
+	<nav class='buttons'>
+		<button type='submit'>내보내기</button>
+	</nav>
+</form>

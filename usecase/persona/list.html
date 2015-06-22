@@ -1,0 +1,16 @@
+<h1>페르소나 목록</h1>
+
+<section id='personaList'>
+<? foreach( $list as $person ) : ?>
+<a href='./view?id=<?=$person->id?>'>
+<dl>
+	<dd class='image'><img src='<?=$person->image?>' /></dd>
+	<dd class='label'><?=$person->label?></dt>
+</dl>
+</a>
+<? endforeach; ?>
+</section>
+
+<ul class='naviButtons'>
+	<li><a class='btnRewrite' href='write'>추가하기</a></li>
+</ul>

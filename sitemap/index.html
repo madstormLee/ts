@@ -1,0 +1,37 @@
+<h1>Sitemap</h1>
+
+<h2><?=$config->session->project?></h2>
+
+<section id='sitemap'>
+<? function sitemapIterator( $data, $depth = 0, $visible = true  ) { ?>
+	<dl>
+	<? foreach( $data as $id => $row ) : ?>
+		<dt>
+			<a href='<?=$row->href?>' class='label'><?=$row->label?>:</a>
+			<? if ( $row->component == $id ): ?>
+			<span class='component'><?=$row->component?></span>
+			<? else: ?>
+			<span class='action'>::<?=$row->action?></span>
+			<? endif; ?>
+			<nav class='buttons'>
+				<a class='view' href='./view?href=<?=$row->href?>'>보기</a>
+				<a class='write' href='./write?href=<?=$row->href?>'>편집</a>
+				<a class='delete' href='./delete?href=<?=$row->href?>' data-confirm='remove?'>삭제</a>
+				<? if ( $row->component == $id ): ?>
+				<a class='more' href='#toggleSub'>more</a>
+				<? endif; ?>
+			</nav>
+		</dt>
+		<? if ( isset( $row->subs ) ): ?>
+		<dd><? sitemapIterator( $row->subs, ++$depth ); ?></dd>
+		<? endif; ?>
+	<? endforeach; ?>
+	</dl>
+	<? } // endfunction; sitemapIterator( $index  ); ?>
+</section>
+
+<? if ( $index->isEmpty() ) : ?>
+<nav>
+	<a class='alert button' href='./skeleton'>create from directory construct</a>
+</nav>
+<? endif; ?>

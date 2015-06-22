@@ -1,0 +1,9 @@
+#personaList {
+}
+#personaList a {
+margin-left: 10px;
+text-decoration: none;
+}
+#personaList dl {
+display: inline-block;
+}

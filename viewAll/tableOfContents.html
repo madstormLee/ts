@@ -1,0 +1,22 @@
+<section id='tableOfContents' class='a4inside'>
+	<h2>목차</h2>
+	<ol>
+	<? $i=1; foreach( $order as $row ) : ?>
+		<li>
+			<a href='#page<?=$row['page']?>'>
+				<span class='title'><?=$row['titleNo']?>. <?=$row['title']?></span>
+				<span class='page'><?=$row['page']?></span>
+			</a>
+		</li>
+
+	<? if ( $i % 32 == 0 ) : ?>
+	</ol>
+	</section>
+	<section id='tableOfContents' class='a4inside'>
+	<h2>목차</h2>
+	<ol>
+	<? endif ?>
+
+	<? ++$i; endforeach; ?>
+	</ol>
+</section>

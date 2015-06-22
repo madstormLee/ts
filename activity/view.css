@@ -1,0 +1,66 @@
+#process {
+border: 1px solid #000;
+}
+#process dt {
+display: inline-block;
+width: 200px;
+padding: 7px;
+padding-right: 20px;
+margin-right: 20px;
+text-align: right;
+background: #ccc;
+}
+#process dd {
+display: inline;
+}
+#activityDiagram {
+margin-top: 20px;
+}
+#activityDiagram table {
+width: 1000px;
+border-collapse: collapse;
+border: 1px solid #000;
+background: url(/phpStorm/images/Activity/devide.gif) repeat-y 50% 0;
+}
+#activityDiagram th {
+background: #ccc;
+border: 1px solid #000;
+height: 30px;
+}
+#activityDiagram td {
+padding: 0;
+}
+#activityDiagram td span {
+	display: inline-block;
+	padding: 3px 30px;
+	background: #eee;
+}
+#activityDiagram td span.start {
+margin-top: 10px;
+	border: 1px solid #000;
+	border-radius: 15px;
+}
+#activityDiagram td span.finish {
+margin-bottom: 20px;
+	border: 1px solid #000;
+	border-radius: 15px;
+}
+#activityDiagram td span.process {
+	border: 1px solid #000;
+}
+#activityDiagram td span.db {
+	width: 250px;
+	height: 80px;
+	padding: 0;
+	text-align: center;
+	line-height: 80px;
+	overflow: hidden;
+	background: url(/phpStorm/images/Activity/database.gif) no-repeat 50% 50%;
+}
+#activityDiagram td p.self {
+height: 20px;
+background: url(/phpStorm/images/Activity/self.gif) no-repeat 50% 50%;
+}
+#activityDiagram td.noPrevActor {
+height: 10px;
+}

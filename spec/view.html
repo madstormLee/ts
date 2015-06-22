@@ -1,0 +1,39 @@
+<h1><?=$model->name?> 컴포넌트 보기</h1>
+
+<ul class='naviButtons'>
+	<li><a href='~/json/write?file=<?=$model->getFile()?>'>json파일 편집</a></li>
+</ul>
+
+<table class='tableSummary componentViewTable'>
+	<tbody>
+		<tr>
+			<td class='title'>컴포넌트 ID</td>
+			<td colspan='2'><?=$model->name?></td>
+		</tr>
+		<tr>
+			<td class='title'>컴포넌트 명</td>
+			<td colspan='2'><?=$model->label?></td>
+		</tr>
+		<tr>
+			<td class='title'>인터페이스 명</td>
+			<td colspan='2'><?=$model->interface?></td>
+		</tr>
+		<tr>
+			<td class='title'>컴포넌트 개요</td>
+			<td colspan='2'><?=$model->description?></td>
+		</tr>
+		<tr>
+			<td rowspan='3' class='title'>Classes</td>
+			<td><?=$model->controller->name?></td>
+			<td><?=$model->controller->description?></td>
+		</tr>
+		<tr>
+			<td><?=$model->model->name?></td>
+			<td><?=$model->model->description?></td>
+		</tr>
+		<tr>
+			<td><?=$model->interface->name?></td>
+			<td><?=$model->interface->description?></td>
+		</tr>
+	</tbody>
+</table>

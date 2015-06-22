@@ -1,0 +1,23 @@
+<h1>Persona <?=( $model->id ) ? '변경':'작성'?></h1>
+
+<form id='PersonaWrite' class='adminForm' method='post' action='<?=( $model->id ) ? "update":"insert"?>'>
+	<fieldset>
+	<ul>
+		<?  foreach( $form as $id => $formUnit ): ?>
+		<? if ( $formUnit->type == 'hidden' ) continue; ?>
+		<li>
+			<?=$formUnit->getLabel()?>
+			<?=$formUnit?>
+		</li>
+		<? endforeach; ?>
+	</ul>
+	</fieldset>
+	<ul class='buttons'>
+		<li><button class='btnSubmit' type='submit'>확인</button></li>
+		<li><button class='btnReset' type='reset'>취소</button></li>
+	</ul>
+</form>
+
+<ul class='naviButtons'>
+	<li><a class='btnList' href="list">목록보기</a></li>
+</ul>

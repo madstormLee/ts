@@ -1,0 +1,28 @@
+<? if ( $model->isEmpty() ) : ?>
+<h1><?=$model->getFile()?> 정보 수정</h1>
+<? else : ?>
+<h1>새로운 프로젝트 생성</h1>
+<? endif ; ?>
+
+<form id='projectWriteForm' method='post' action='save'>
+	<? foreach( $model as $domain => $data ): $form = new MadForm( $data ); ?>
+	<fieldset>
+		<legend><?=$domain?></legend>
+		<ul class='adminForm'>
+			<? 
+			foreach( $form as $name => $formUnit ) :
+			$formUnit->name = $domain . '[' . $name . ']';
+			$formUnit->id = $domain . ucFirst( $name );
+			if ( $model->isEmpty() ) {
+				$formUnit->value = $ini->$domain->$name;
+			}
+			?>
+			<li> <?=$formUnit->getLabel()?> <?=$formUnit?> </li>
+			<? endforeach; ?>
+		</ul>
+	</fieldset>
+	<? endforeach; ?>
+	<ul class='buttons'>
+		<li><button type='submit'>만들기</button></li>
+	</ul>
+</form>

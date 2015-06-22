@@ -1,0 +1,13 @@
+{
+	"info": {
+		"title": "Thunder Storm",
+		"author": "Madstorm",
+		"year": "2014",
+		"project": "ThunderStorm"
+	},
+	"instances": {
+		"db": "MadDb::create('sqlite:data.db')",
+		"session": "MadSession::getInstance()",
+		"layout": "new MadView('layout.html')"
+	}
+}

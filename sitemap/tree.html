@@ -1,0 +1,29 @@
+<h1>tree 목록</h1>
+
+<form id='JsonWrite' method='post' action='./save'>
+	<section id='sitemapTree'>
+	<? function sitemapTemplate( $data, $depth = 1, $visible = true, $g ) { ?>
+		<? foreach( $data as $name => $row ): ?>
+		<dl class='depth<?=$depth?>'>
+			<dt class='<?=$name?>'>
+				<a href='<?=$row->href?>' class='label'><?=$name ?>( <?=$row->label?> ) :</a>
+				<span class='action'><?=$row->controller?>::<?=$row->action?></span>
+			</dt>
+			<? if ( $row->subs ) : ?>
+			<dd><? sitemapTemplate( $row->subs, ++$depth, true, $g ); ?></dd>
+			<? endif; ?>
+		</dl>
+	<? endforeach; ?>
+	<? } // endfunction ?>
+	<?=sitemapTemplate( $sitemap, 1, true, $g ); ?>
+	</section>
+	<textarea id='content' name='content' style='display: none;'><?=$sitemap?></textarea>
+
+	<button type='submit'>저장</button>
+</form> 
+
+<section id='view' style='display: none'>
+</section>
+
+<section id='write' style='display: none;'>
+</section>

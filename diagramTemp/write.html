@@ -1,0 +1,20 @@
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src='./write.js'></script>
+<link rel='stylesheet' type='text/css' href='./style.css' />
+
+<h1>Component Diagram Write</h1>
+
+<form id='ComponentDiagramWrite' class='diagram' method='post' action='./save'>
+	<nav class='buttons'>
+		<input type='hidden' name='file' id='file' value='<?=$model->getFile()?>' />
+		<input type='text' name='title' id='title' value='<?=$model->title?>' />
+		<button type='submit'>save</button>
+	</nav>
+	<section class='units'><?=$model->components?></section>
+	<canvas id='relations' width='1000' height='700'><?=$model->relations?></canvas>
+</form>
+
+<section id='right'>
+	<section id='components' data-href='~/component/index'></section>
+	<section id='controllers' data-href='~/controller/index'></section>
+</section>

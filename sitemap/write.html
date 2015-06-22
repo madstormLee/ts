@@ -1,0 +1,30 @@
+<h1>서브 만들기</h1>
+
+<form method='post' action='./save'>
+	<input type='hidden' name='current' value='<?=$model->href?>' />
+	<ul>
+		<li>
+			<label for='name'>Name</label>
+			<input type='text' name='name' id='name' />
+		</li>
+		<li>
+			<label for='label'>Label</label>
+			<input type='text' name='label' />
+		</li>
+		<li>
+			<label for='href'>Href</label>
+			<input type='text' name='href' id='href' value='<?=$model->href?>/' />
+		</li>
+		<li>
+			<label for='controller'>Controller</label>
+			<input type='text' id='controller' name='controller' readonly />
+		</li>
+		<li>
+			<label for='action'>Action</label>
+			<input type='text' name='action' id='action' readonly />
+		</li>
+	</ul>
+	<nav class='buttons'>
+		<li><button>만들기</button>
+	</nav>
+</form>
