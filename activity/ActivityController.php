@@ -1,8 +1,7 @@
 <?
 class ActivityController extends MadController {
 	function indexAction() {
-		$list = new ActivityList( $this->project->getDir('diagrams') . 'activity/' );
-		$this->view->list = $list;
+		$this->view->index = new MadDir( $this->component . '/activity' );
 	}
 	function writeAction() {
 		$this->setLayout( new MadView('Interface/writeLayout') );
@@ -12,7 +11,7 @@ class ActivityController extends MadController {
 			->add("~/css/Activity/write");
 
 		$this->view->table = new MadData;
-		$this->view->activityList = new MadList;
+		$this->view->activityList = new MadIndex( $this->model );
 	}
 	function viewAction() {
 		$this->view->model = $this->model->load( $this->get->file );

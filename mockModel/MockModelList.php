@@ -1,8 +1,8 @@
 <?
-class MockModelList extends MadList {
-	private $rows = 300;
-	private $config = null;
-	private $mockData = null;
+class MockModelList extends MadIndex {
+	protected $rows = 300;
+	protected $config = null;
+	protected $mockData = null;
 	function __construct() {
 		parent::__construct();
 	}
@@ -52,7 +52,7 @@ class MockModelList extends MadList {
 
 		return $this;
 	}
-	private function getMockRows( $rows ) {
+	protected function getMockRows( $rows ) {
 		$rv = array();
 		$listColumns = $this->getSelectedHeaders();
 		$mockColumn = new MockColumn;
